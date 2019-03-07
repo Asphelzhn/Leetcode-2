@@ -40,6 +40,45 @@ public class _2 {
         }
     }
 
+    class Solution3 {
+	public class ListNode {
+		int val;
+		ListNode next;
+		ListNode(int x){val = x;}
+	}
+	
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+    	
+    	ListNode head = new ListNode(-1);
+    	ListNode pointer = head; 
+    	int temp = 0;
+    	
+        while(l1 !=null || l2 != null ) {
+        	if(l1 != null) {
+        		temp += l1.val ;
+        		l1 = l1.next;
+        	}
+        	if(l2 != null) {
+        		temp += l2.val;
+        		l2 = l2.next;
+        	}
+        	
+        	int yushu = temp % 10;
+        	temp = temp / 10 ==0 ? 0 : 1;
+        	
+        	ListNode newnode = new ListNode(yushu);
+        	head.next = newnode;
+        	head = head.next;
+        
+        }
+        if(temp != 0 ) {
+        	head.next = new ListNode(temp);
+        }
+        return pointer.next; 
+    }
+}
+
+
     public static class Solution2 {
         public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
             ListNode pre = new ListNode(-1);
